@@ -1,8 +1,9 @@
 # Redis-In-Depth
 
 + [**Introduction**](#introduction)
-+ [**Restore**](#restore)
++ [**Basic**](#basic)
 + [**Keys**](#keys)
++ [**Shutdown**](#shutdown)
 
 # introduction
 
@@ -13,12 +14,20 @@
 + Stores data in ram rather than hard disk
 + It supports data structures like: str, hash, list, sort, set, sorted set with range queries, bitmaps, hyperlologs.
 
-# restore
+# basic
 
 + set val
 
     ```text
     set key val
+    ```
+
++ set val
+
+    ```text
+    set key val ex 10   // key will expire in 10 sec
+    ttl key             // how many sec are left to expire
+    persist key         // remove expiration
     ```
 
 + get val
@@ -37,6 +46,14 @@
 
     ```text
     del key
+    del key1 key2 keyn
+    ```
+
++ exist key
+
+    ```text
+    exists key
+    exists key1 key2 keyn
     ```
 
 + restore data
@@ -78,4 +95,12 @@
     rename oldKey newkey    //reanme key  
     unlink key              // del key asynchronously without blocking current thread. Faster than del & useful for large data.  
     type key                // key datatype
+    ```
+
+# shutdown
+
++ save/unsave data on disk
+
+    ```text
+    shutdown save/unsave    // save/unsave:optional
     ```
