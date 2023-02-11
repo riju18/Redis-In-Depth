@@ -16,13 +16,13 @@
 
 # basic
 
-+ set val
++ set key val
 
     ```text
     set key val
     ```
 
-+ set val
++ set expiration
 
     ```text
     set key val ex 10   // key will expire in 10 sec
