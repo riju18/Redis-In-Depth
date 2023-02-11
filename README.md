@@ -12,7 +12,7 @@
 + Caching & message broker (communication between client & application)
 + Written in ANSI C
 + Stores data in ram rather than hard disk
-+ It supports data structures like: str, hash, list, sort, set, sorted set with range queries, bitmaps, hyperlologs.
++ It supports data structures like: str, hash, list, sort, set, sorted set with range queries, bitmaps, hyperloglogs.
 
 # basic
 
