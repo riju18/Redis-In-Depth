@@ -102,5 +102,5 @@
 + save/unsave data on disk
 
     ```text
-    shutdown save/unsave    // save/unsave:optional
+    shutdown save/nosave    // save/nosave:optional
     ```
