@@ -184,3 +184,22 @@
     ```
 
 # string
+
++ slice
+
+    ```text
+    // upper limit inclusive
+
+    getrange key 0 5
+
+    // -1: last pos
+
+    getrange key 0 -1
+    getrange key -3 -1
+    ```
+
++ replace by pos
+
+    ```text
+    setrange key pos val
+    ```
