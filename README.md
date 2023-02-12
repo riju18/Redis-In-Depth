@@ -4,6 +4,7 @@
 + [**Basic**](#basic)
 + [**Keys**](#keys)
 + [**Shutdown**](#shutdown)
++ [**String**](#string)
 
 # introduction
 
@@ -15,6 +16,12 @@
 + It supports data structures like: str, hash, list, sort, set, sorted set with range queries, bitmaps, hyperloglogs.
 
 # basic
+
++ key type
+    
+    ```text
+    type key
+    ```
 
 + set key val
 
@@ -33,11 +40,19 @@
     ```text
     // for single key-val
 
-    set nx key1 val1
+    set key1 val1 nx
 
     // for multiple key-val
 
     msetnx key1 val1 key2 val2 key3 val3 ...
+    ```
+
++ overwite val if only the key exists
+
+    ```text
+    // for single key-val
+
+    set key1 val1 xx
     ```
 
 + set expiration
@@ -94,6 +109,37 @@
     restore key 0 serialized-value
     ```
 
++ append data in key
+
+    ```text
+    append key val
+    ```
+
++ increment value of a key
+
+    ```text
+    // by default the value will be incremented by 1
+
+    incr key
+
+    // custom val to increment
+
+    incrby key value
+    incrbyfloat key value
+    ```
+
++ derement value of a key
+
+    ```text
+    // by default the value will be decremented by 1
+
+    decr key
+
+    // custom val to decrement
+
+    decrby key value
+    ```
+
 # keys
 
 + set some keys as example
@@ -136,3 +182,5 @@
     ```text
     shutdown save/nosave    // save/nosave:optional
     ```
+
+# string
