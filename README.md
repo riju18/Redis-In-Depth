@@ -22,6 +22,24 @@
     set key val
     ```
 
++ set multiple key val
+
+    ```text
+    set key1 val1 key2 val2 key3 val3 ...
+    ```
+
++ set key val if not exists
+
+    ```text
+    // for single key-val
+
+    set nx key1 val1
+
+    // for multiple key-val
+
+    msetnx key1 val1 key2 val2 key3 val3 ...
+    ```
+
 + set expiration
 
     ```text
@@ -34,6 +52,20 @@
 
     ```text
     get key
+    ```
+
++ get multiple key val
+
+    ```text
+    mget key1 key2 key3 ...
+    ```
+
++ replace oldVal
+
+    ```text
+    // replace oldVal with newVal
+
+    getset key val
     ```
 
 + save data
