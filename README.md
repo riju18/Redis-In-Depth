@@ -6,6 +6,7 @@
 + [**Shutdown**](#shutdown)
 + [**String**](#string)
 + [**List**](#list)
++ [**Hash**](#hash)
 
 # introduction
 
@@ -94,14 +95,14 @@
 
     ```text
     del key
-    del key1 key2 keyn
+    del key1 key2 key...n
     ```
 
 + **exist key**
 
     ```text
     exists key
-    exists key1 key2 keyn
+    exists key1 key2 key...n
     ```
 
 + **restore data**
@@ -116,7 +117,7 @@
     append key val
     ```
 
-+ **increment value of a key**
++ **increment value of a key** ( ```must be int``` )
 
     ```text
     // by default the value will be incremented by 1
@@ -129,7 +130,7 @@
     incrbyfloat key value
     ```
 
-+ **derement value of a key**
++ **derement value of a key** ( ```must be int``` )
 
     ```text
     // by default the value will be decremented by 1
@@ -279,4 +280,104 @@
 
     ```text
     linsert key before/after matchingVal newVal
+    ```
+
+# hash
+
++ every hash can store up to **2<sup>32</sup>-1** field-val pairs(more than 4 billion)
+
++ set one field val
+
+    ```text
+    // if field exists then update otherwise insert
+
+    hset key field value
+    // ex: hset student name samrat
+    ```
+
++ set multiple field val
+
+    ```text
+    hmset key field1 value1 field2 value2 field...n value...n
+
+    // ex: hmset student name samrat profession "Data Engineer"
+    ```
+
++ get one val
+
+    ```text
+    hget key field
+
+    // ex: hset student name
+    // output: samrat
+    ```
+
++ get multiple val
+
+    ```text
+    hmget key field1 field2 field...n
+
+    // ex: hmget student name profession
+    // output: samrat "Data Engineer"
+    ```
+
++ get all keys
+
+    ```text
+    hkeys key
+    ```
+
++ get all val
+
+    ```text
+    hvals key
+
+    // ex: hvals student
+    // output: all val
+    ```
+
++ get all field-val
+
+    ```text
+    hgetall key
+    ```
+
++ check field exists or not
+
+    ```text
+    hexists key field
+    ```
+
++ length of key
+
+    ```text
+    hlen key
+    ```
+
++ length of particular field
+
+    ```text
+    hstrlen key field
+    ```
+
++ insert field if not exists
+
+    ```text
+    hsetnx key field value
+    ```
+
++ delete field
+
+    ```text
+    hdel key field1 field2 field...n
+    ```
+
++ increment field val ( ```must be int/float``` )
+
+    ```text
+    // only int type
+    hincrby key field val increment
+
+    // can be used in both float and int type
+    hincrbyfloat key field val increment
     ```
